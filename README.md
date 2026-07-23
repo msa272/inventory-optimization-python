@@ -6,7 +6,7 @@ A Python-based supply chain analytics project that performs inventory classifica
 
 This project analyzes a simulated inventory dataset containing 105 SKUs across multiple raw material and packaging categories.
 
-The program helps support inventory planning decisions by calculating:
+The program supports inventory-planning decisions by calculating:
 
 - Inventory Value
 - ABC Classification
@@ -19,12 +19,12 @@ It also generates charts and exports the results into a professionally formatted
 
 ## Business Problem
 
-Inventory planners must balance product availability with the cost of holding excess stock.
+Inventory planners must balance product availability with the cost of holding excess inventory.
 
-This project addresses several common inventory management questions:
+This project addresses several common inventory-management questions:
 
 - Which SKUs account for the largest share of inventory value?
-- What is the optimal quantity to order?
+- What is the optimal order quantity?
 - How much safety stock should be maintained?
 - At what inventory level should replenishment be triggered?
 - Which products require the closest management attention?
@@ -38,8 +38,8 @@ This project addresses several common inventory management questions:
 - Calculates Safety Stock
 - Calculates Reorder Point
 - Generates four inventory visualizations
-- Exports a formatted Excel report
-- Automatically generates a simulated 105-SKU dataset
+- Exports a professionally formatted Excel report
+- Generates a simulated 105-SKU dataset
 
 ## Technologies Used
 
@@ -49,6 +49,7 @@ This project addresses several common inventory management questions:
 - OpenPyXL
 - Microsoft Excel
 - Visual Studio Code
+- Git
 - GitHub
 
 ## Inventory Calculations
@@ -57,22 +58,35 @@ This project addresses several common inventory management questions:
 
 ```text
 Inventory Value = Annual Demand × Unit Cost
-````markdown
+```
+
 ### Economic Order Quantity
 
 ```text
 EOQ = √((2 × Annual Demand × Ordering Cost) / Holding Cost)
+```
+
+### Safety Stock
+
+```text
 Safety Stock =
 Service Level Z × Daily Demand Standard Deviation × √Lead Time
+```
+
+### Reorder Point
+
+```text
 Reorder Point =
 Average Daily Demand × Lead Time + Safety Stock
+```
+
 ## ABC Classification
 
 Products are sorted by inventory value and assigned to categories based on cumulative inventory value:
 
 - A Class: Approximately the first 80% of inventory value
-- B Class: Approximately the next 15%
-- C Class: Approximately the remaining 5%
+- B Class: Approximately the next 15% of inventory value
+- C Class: Approximately the remaining 5% of inventory value
 
 ## Visualizations
 
@@ -91,24 +105,28 @@ Products are sorted by inventory value and assigned to categories based on cumul
 ### Pareto Analysis
 
 ![Pareto Chart](charts/pareto_chart.png)
+
 ## Project Structure
 
 ```text
 inventory-optimization-python/
 │
-├── read_inventory.py
+├── charts/
+│   ├── eoq_chart.png
+│   ├── inventory_value.png
+│   ├── pareto_chart.png
+│   └── safety_stock_reorder_point.png
+│
 ├── generate_inventory_data.py
+├── inventory_analysis.py
 ├── inventory_data.csv
 ├── inventory_report.xlsx
+├── read_inventory.py
 ├── requirements.txt
 ├── README.md
 ├── LICENSE
 ├── .gitignore
-└── charts/
-    ├── inventory_value.png
-    ├── eoq_chart.png
-    ├── safety_stock_reorder_point.png
-    └── pareto_chart.png
+└── .gitattributes
 ```
 
 ## How to Run the Project
@@ -116,7 +134,7 @@ inventory-optimization-python/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/maanit-2408/inventory-optimization-python.git
+git clone https://github.com/msa272/inventory-optimization-python.git
 ```
 
 ### 2. Open the project folder
@@ -142,46 +160,48 @@ python generate_inventory_data.py
 ```bash
 python read_inventory.py
 ```
+
 ## Output
 
 Running the project generates:
 
 - A terminal summary containing inventory metrics
-- A professionally formatted Excel report (`inventory_report.xlsx`)
+- A professionally formatted Excel report named `inventory_report.xlsx`
 - Four charts inside the `charts` folder:
   - Inventory Value
-  - Economic Order Quantity (EOQ)
-  - Safety Stock & Reorder Point
+  - Economic Order Quantity
+  - Safety Stock and Reorder Point
   - Pareto Analysis
 
 ## Dataset
 
-The project uses a simulated dataset of **105 inventory SKUs** across multiple supply chain categories, including:
+The project uses a simulated dataset of 105 inventory SKUs across multiple supply chain categories, including:
 
 - Aluminium Foil
 - Packaging Film
 - Polymer Resin
 - Adhesives
 - Packaging Materials
-- Ink & Coating
+- Ink and Coating
 - Maintenance Supplies
 
-The dataset is generated automatically using `generate_inventory_data.py` for educational and portfolio purposes.
+The dataset is generated automatically using `generate_inventory_data.py` for educational and portfolio purposes. It does not contain confidential company data.
 
 ## Skills Demonstrated
 
 - Supply Chain Analytics
 - Inventory Planning
 - ABC Analysis
-- Economic Order Quantity (EOQ)
-- Safety Stock
-- Reorder Point
+- Economic Order Quantity
+- Safety Stock Calculation
+- Reorder Point Analysis
 - Data Visualization
 - Excel Report Automation
 - Python Programming
 - Pandas
 - Matplotlib
 - OpenPyXL
+- Git and GitHub
 
 ## Future Improvements
 
@@ -189,11 +209,11 @@ Potential enhancements include:
 
 - Demand Forecasting
 - Inventory Turnover Analysis
-- Slow-moving & Dead Stock Identification
-- Lead Time Variability
+- Slow-Moving and Dead-Stock Identification
+- Lead-Time Variability
 - SQL Database Integration
 - Power BI Dashboard
-- Interactive Streamlit Web App
+- Interactive Streamlit Web Application
 
 ## Author
 
